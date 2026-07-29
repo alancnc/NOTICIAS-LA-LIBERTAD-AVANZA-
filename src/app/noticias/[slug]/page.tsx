@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
 import { notFound } from "next/navigation";
-import { LeonLLA } from "@/components/Logo";
+import { AguilaLLA } from "@/components/Logo";
 import { TarjetaNoticia } from "@/components/TarjetaNoticia";
 import { TituloSeccion } from "@/components/ui";
 import { CompartirNota } from "@/components/CompartirNota";
@@ -99,7 +99,7 @@ export default async function PaginaNota({
         {/* Cabecera */}
         <header className="degrade-lla">
           <div className="mx-auto max-w-3xl px-4 py-10 sm:px-6 lg:py-14">
-            <nav className="flex flex-wrap items-center gap-2 text-xs font-semibold text-lla-200">
+            <nav className="font-manrope flex flex-wrap items-center gap-2 text-xs font-semibold text-lla-200">
               <Link href="/" className="hover:text-white">Inicio</Link>
               <span aria-hidden="true">/</span>
               <Link href="/noticias" className="hover:text-white">Noticias</Link>
@@ -113,23 +113,23 @@ export default async function PaginaNota({
             </nav>
 
             {noticia.urgente && (
-              <span className="mt-5 inline-block rounded bg-red-600 px-2.5 py-1 text-[0.7rem] font-black uppercase tracking-wider text-white">
+              <span className="font-manrope mt-5 inline-block rounded bg-red-600 px-2.5 py-1 text-[0.7rem] font-bold uppercase tracking-wider text-white">
                 Último momento
               </span>
             )}
 
-            <h1 className="mt-4 text-3xl font-black leading-[1.12] tracking-tight text-white sm:text-4xl lg:text-[2.85rem]">
+            <h1 className="font-instrument mt-4 text-4xl leading-[1.15] text-white sm:text-5xl lg:text-6xl">
               {noticia.titulo}
             </h1>
 
             {noticia.bajada && (
-              <p className="mt-5 text-lg leading-relaxed text-lla-100">
+              <p className="font-inter mt-5 text-lg leading-relaxed text-lla-100">
                 {noticia.bajada}
               </p>
             )}
 
-            <div className="mt-7 flex flex-wrap items-center gap-x-3 gap-y-2 border-t border-white/15 pt-5 text-sm text-lla-200">
-              <LeonLLA className="h-8 w-8" />
+            <div className="font-manrope mt-7 flex flex-wrap items-center gap-x-3 gap-y-2 border-t border-white/15 pt-5 text-sm text-lla-200">
+              <AguilaLLA className="h-8 w-auto" />
               <span className="font-semibold text-white">{noticia.autor}</span>
               <span aria-hidden="true">·</span>
               <time dateTime={noticia.fecha}>{noticia.fechaLegible}</time>
@@ -168,14 +168,14 @@ export default async function PaginaNota({
           />
 
           {noticia.etiquetas.length > 0 && (
-            <div className="mt-10 flex flex-wrap items-center gap-2 border-t border-borde pt-6">
-              <span className="text-xs font-black uppercase tracking-wider text-fg-subtle">
+            <div className="font-manrope mt-10 flex flex-wrap items-center gap-2 border-t border-white/10 pt-6">
+              <span className="text-xs font-bold uppercase tracking-wider text-fg-subtle">
                 Temas
               </span>
               {noticia.etiquetas.map((e) => (
                 <span
                   key={e}
-                  className="rounded-full bg-bg-soft px-3 py-1 text-xs font-semibold text-fg-muted"
+                  className="rounded-full bg-white/5 px-3 py-1 text-xs font-semibold text-fg-muted"
                 >
                   #{e}
                 </span>

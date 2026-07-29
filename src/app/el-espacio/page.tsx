@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import { LeonLLA } from "@/components/Logo";
+import { LogoCompleto } from "@/components/Logo";
 import { CATEGORIAS, SITIO } from "@/lib/config";
 
 export const metadata: Metadata = {
@@ -36,16 +36,13 @@ const PILARES = [
 export default function ElEspacio() {
   return (
     <>
-      <header className="degrade-lla">
+      <header className="relative degrade-lla">
         <div className="mx-auto max-w-4xl px-4 py-16 text-center sm:px-6 lg:py-20">
-          <LeonLLA className="mx-auto h-20 w-20" />
-          <p className="mt-6 text-xs font-black uppercase tracking-[0.25em] text-lla-300">
-            La Libertad Avanza
-          </p>
-          <h1 className="mt-3 text-3xl font-black tracking-tight text-white sm:text-5xl">
+          <LogoCompleto className="mx-auto h-28 w-auto sm:h-36" />
+          <h1 className="font-instrument mt-8 text-4xl text-white sm:text-6xl">
             El espacio en {SITIO.provincia}
           </h1>
-          <p className="mx-auto mt-5 max-w-2xl text-base leading-relaxed text-lla-100 sm:text-lg">
+          <p className="font-inter mx-auto mt-5 max-w-2xl text-base leading-relaxed text-lla-100 sm:text-lg">
             Somos el espacio que lleva las ideas de la libertad a cada rincón de la
             provincia. Este portal reúne toda nuestra actividad política, legislativa
             y territorial.
@@ -53,19 +50,19 @@ export default function ElEspacio() {
         </div>
       </header>
 
-      <div className="mx-auto max-w-4xl px-4 py-14 sm:px-6">
+      <div className="relative mx-auto max-w-4xl px-4 py-14 sm:px-6">
         <section>
-          <h2 className="text-2xl font-black tracking-tight text-fg sm:text-3xl">
+          <h2 className="font-instrument text-3xl text-white sm:text-4xl">
             Nuestros pilares
           </h2>
           <div className="mt-8 grid gap-6 sm:grid-cols-2">
             {PILARES.map((p) => (
               <div
                 key={p.titulo}
-                className="rounded-xl border border-borde bg-bg-elev p-6 transition-colors hover:border-lla-400"
+                className="vidrio rounded-xl p-6 transition-colors hover:border-acento/60"
               >
-                <h3 className="text-lg font-bold text-brand">{p.titulo}</h3>
-                <p className="mt-2.5 text-sm leading-relaxed text-fg-muted">
+                <h3 className="font-instrument text-lg text-lla-300">{p.titulo}</h3>
+                <p className="font-inter mt-2.5 text-sm leading-relaxed text-fg-muted">
                   {p.texto}
                 </p>
               </div>
@@ -74,10 +71,10 @@ export default function ElEspacio() {
         </section>
 
         <section className="mt-16">
-          <h2 className="text-2xl font-black tracking-tight text-fg sm:text-3xl">
+          <h2 className="font-instrument text-3xl text-white sm:text-4xl">
             Qué vas a encontrar acá
           </h2>
-          <p className="mt-3 text-base leading-relaxed text-fg-muted">
+          <p className="font-inter mt-3 text-base leading-relaxed text-fg-muted">
             Publicamos todo lo que hace el espacio en la provincia, organizado por
             secciones para que encuentres rápido lo que buscás:
           </p>
@@ -86,10 +83,10 @@ export default function ElEspacio() {
               <li key={c.clave}>
                 <Link
                   href={`/categoria/${c.clave}`}
-                  className="block rounded-lg border border-borde p-4 transition-colors hover:border-lla-400 hover:bg-bg-soft"
+                  className="vidrio block rounded-lg p-4 transition-colors hover:border-acento/60"
                 >
-                  <span className="font-bold text-fg">{c.nombre}</span>
-                  <span className="mt-1 block text-sm leading-relaxed text-fg-muted">
+                  <span className="font-manrope font-bold text-white">{c.nombre}</span>
+                  <span className="font-inter mt-1 block text-sm leading-relaxed text-fg-muted">
                     {c.descripcion}
                   </span>
                 </Link>
@@ -99,16 +96,16 @@ export default function ElEspacio() {
         </section>
 
         <section className="mt-16 rounded-2xl degrade-lla p-8 text-center sm:p-12">
-          <h2 className="text-2xl font-black tracking-tight text-white sm:text-3xl">
+          <h2 className="font-instrument text-3xl text-white sm:text-4xl">
             ¿Querés sumarte?
           </h2>
-          <p className="mx-auto mt-3 max-w-xl text-base leading-relaxed text-lla-100">
+          <p className="font-inter mx-auto mt-3 max-w-xl text-base leading-relaxed text-lla-100">
             Si compartís nuestras ideas y querés participar de las actividades en tu
             municipio, escribinos. Nos ponemos en contacto.
           </p>
           <Link
             href="/contacto"
-            className="mt-7 inline-block rounded-lg bg-oro-500 px-7 py-3 text-sm font-black text-lla-950 transition-transform hover:scale-105"
+            className="font-cabin mt-7 inline-block rounded-[10px] bg-oro-500 px-7 py-3 text-sm font-medium text-lla-950 transition-transform hover:scale-105"
           >
             Contactanos
           </Link>

@@ -47,22 +47,22 @@ export default async function PaginaCategoria({
 
   return (
     <div className="mx-auto max-w-7xl px-4 py-10 sm:px-6 lg:px-8">
-      <header className="border-b-2 border-lla-600 pb-5">
-        <p className="text-xs font-black uppercase tracking-[0.2em] text-brand">
+      <header className="border-b border-white/15 pb-5">
+        <p className="font-manrope text-xs font-bold uppercase tracking-[0.2em] text-brand">
           Sección
         </p>
-        <h1 className="mt-2 text-3xl font-black tracking-tight text-fg sm:text-4xl">
+        <h1 className="font-instrument mt-2 text-4xl text-white sm:text-5xl">
           {categoria.nombre}
         </h1>
-        <p className="mt-2 max-w-2xl text-sm leading-relaxed text-fg-muted">
+        <p className="font-inter mt-2 max-w-2xl text-sm leading-relaxed text-fg-muted">
           {categoria.descripcion}
         </p>
       </header>
 
-      <nav className="mt-6 flex flex-wrap gap-2" aria-label="Filtrar por sección">
+      <nav className="font-manrope mt-6 flex flex-wrap gap-2" aria-label="Filtrar por sección">
         <Link
           href="/noticias"
-          className="rounded-full border border-borde px-4 py-1.5 text-sm font-semibold text-fg-muted transition-colors hover:border-lla-400 hover:text-brand"
+          className="rounded-full border border-white/15 px-4 py-1.5 text-sm font-semibold text-fg-muted transition-colors hover:border-acento hover:text-brand"
         >
           Todas
         </Link>
@@ -73,8 +73,8 @@ export default async function PaginaCategoria({
             aria-current={c.clave === clave ? "page" : undefined}
             className={`rounded-full px-4 py-1.5 text-sm font-semibold transition-colors ${
               c.clave === clave
-                ? "bg-lla-600 text-white"
-                : "border border-borde text-fg-muted hover:border-lla-400 hover:text-brand"
+                ? "bg-acento text-white"
+                : "border border-white/15 text-fg-muted hover:border-acento hover:text-brand"
             }`}
           >
             {c.nombre}

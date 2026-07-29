@@ -17,10 +17,6 @@ export function CompartirNota({
       href: `https://wa.me/?text=${encodeURIComponent(`${titulo} ${url}`)}`,
     },
     {
-      nombre: "X",
-      href: `https://x.com/intent/tweet?text=${encodeURIComponent(titulo)}&url=${encodeURIComponent(url)}`,
-    },
-    {
       nombre: "Facebook",
       href: `https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(url)}`,
     },
@@ -37,15 +33,15 @@ export function CompartirNota({
   }
 
   return (
-    <div className="mt-8 flex flex-wrap items-center gap-2 rounded-xl border border-borde bg-bg-soft p-4">
-      <span className="mr-1 text-sm font-bold text-fg">Compartir:</span>
+    <div className="font-cabin vidrio mt-8 flex flex-wrap items-center gap-2 rounded-xl p-4">
+      <span className="font-manrope mr-1 text-sm font-bold text-white">Compartir:</span>
       {enlaces.map((e) => (
         <a
           key={e.nombre}
           href={e.href}
           target="_blank"
           rel="noopener noreferrer"
-          className="rounded-lg bg-lla-600 px-3.5 py-2 text-sm font-semibold text-white transition-colors hover:bg-lla-700"
+          className="rounded-[10px] bg-acento px-3.5 py-2 text-sm font-medium text-white transition-colors hover:bg-[#8f52ff]"
         >
           {e.nombre}
         </a>
@@ -53,7 +49,7 @@ export function CompartirNota({
       <button
         type="button"
         onClick={copiar}
-        className="rounded-lg border border-borde-fuerte px-3.5 py-2 text-sm font-semibold text-fg transition-colors hover:border-lla-400 hover:text-brand"
+        className="rounded-[10px] border border-white/15 px-3.5 py-2 text-sm font-medium text-fg transition-colors hover:border-acento hover:text-brand"
       >
         {copiado ? "¡Enlace copiado!" : "Copiar enlace"}
       </button>

@@ -33,29 +33,29 @@ export default async function PaginaNoticias({
 
   return (
     <div className="mx-auto max-w-7xl px-4 py-10 sm:px-6 lg:px-8">
-      <header className="border-b-2 border-lla-600 pb-5">
-        <p className="text-xs font-black uppercase tracking-[0.2em] text-brand">
+      <header className="border-b border-white/15 pb-5">
+        <p className="font-manrope text-xs font-bold uppercase tracking-[0.2em] text-brand">
           Archivo
         </p>
-        <h1 className="mt-2 text-3xl font-black tracking-tight text-fg sm:text-4xl">
+        <h1 className="font-instrument mt-2 text-4xl text-white sm:text-5xl">
           Todas las noticias
         </h1>
-        <p className="mt-2 text-sm text-fg-muted">
+        <p className="font-inter mt-2 text-sm text-fg-muted">
           {noticias.length} {noticias.length === 1 ? "nota publicada" : "notas publicadas"}
           {totalPaginas > 1 && ` · página ${numeroPagina} de ${totalPaginas}`}
         </p>
       </header>
 
       {/* Filtro por sección */}
-      <nav className="mt-6 flex flex-wrap gap-2" aria-label="Filtrar por sección">
-        <span className="rounded-full bg-lla-600 px-4 py-1.5 text-sm font-bold text-white">
+      <nav className="font-manrope mt-6 flex flex-wrap gap-2" aria-label="Filtrar por sección">
+        <span className="rounded-full bg-acento px-4 py-1.5 text-sm font-semibold text-white">
           Todas
         </span>
         {CATEGORIAS.filter((c) => (conteo.get(c.clave) ?? 0) > 0).map((c) => (
           <Link
             key={c.clave}
             href={`/categoria/${c.clave}`}
-            className="rounded-full border border-borde px-4 py-1.5 text-sm font-semibold text-fg-muted transition-colors hover:border-lla-400 hover:text-brand"
+            className="rounded-full border border-white/15 px-4 py-1.5 text-sm font-semibold text-fg-muted transition-colors hover:border-acento hover:text-brand"
           >
             {c.nombre}
             <span className="ml-1.5 text-xs text-fg-subtle">

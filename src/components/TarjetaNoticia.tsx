@@ -1,7 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import type { Noticia } from "@/lib/noticias";
-import { LeonLLA } from "./Logo";
+import { AguilaLLA } from "./Logo";
 
 /** Portada: usa la imagen de la nota o un fondo institucional si no hay. */
 function Portada({
@@ -28,20 +28,20 @@ function Portada({
 
   return (
     <div className="degrade-lla absolute inset-0 flex items-center justify-center">
-      <LeonLLA className="h-1/2 w-1/2 max-h-32 max-w-32 opacity-25 transition-transform duration-500 group-hover:scale-110" />
+      <AguilaLLA className="h-1/2 w-auto max-h-28 opacity-25 transition-transform duration-500 group-hover:scale-110" />
     </div>
   );
 }
 
 function Etiqueta({ noticia }: { noticia: Noticia }) {
   return (
-    <span className="inline-flex items-center gap-1.5">
+    <span className="font-cabin inline-flex items-center gap-1.5">
       {noticia.urgente && (
-        <span className="rounded bg-red-600 px-2 py-0.5 text-[0.65rem] font-black uppercase tracking-wider text-white">
+        <span className="rounded bg-red-600 px-2 py-0.5 text-[0.65rem] font-semibold uppercase tracking-wider text-white">
           Último momento
         </span>
       )}
-      <span className="rounded bg-lla-600 px-2 py-0.5 text-[0.65rem] font-black uppercase tracking-wider text-white">
+      <span className="rounded bg-acento px-2 py-0.5 text-[0.65rem] font-semibold uppercase tracking-wider text-white">
         {noticia.categoriaNombre}
       </span>
     </span>
@@ -63,17 +63,17 @@ export function TarjetaPrincipal({ noticia }: { noticia: Noticia }) {
 
       <div className="absolute inset-x-0 bottom-0 p-5 sm:p-7 lg:p-8">
         <Etiqueta noticia={noticia} />
-        <h2 className="mt-3 text-2xl font-black leading-[1.15] tracking-tight text-white sm:text-3xl lg:text-4xl">
+        <h2 className="font-instrument mt-3 text-3xl leading-[1.15] text-white sm:text-4xl lg:text-5xl">
           <Link href={`/noticias/${noticia.slug}`} className="after:absolute after:inset-0">
             {noticia.titulo}
           </Link>
         </h2>
         {noticia.bajada && (
-          <p className="linea-clamp-2 mt-3 max-w-2xl text-sm leading-relaxed text-lla-100 sm:text-base">
+          <p className="font-inter linea-clamp-2 mt-3 max-w-2xl text-sm leading-relaxed text-lla-100 sm:text-base">
             {noticia.bajada}
           </p>
         )}
-        <p className="mt-4 text-xs font-medium text-lla-300">
+        <p className="font-manrope mt-4 text-xs font-medium text-lla-300">
           {noticia.fechaLegible} · {noticia.minutosLectura} min de lectura
         </p>
       </div>
@@ -90,7 +90,7 @@ export function TarjetaNoticia({
   prioridad?: boolean;
 }) {
   return (
-    <article className="group relative flex flex-col overflow-hidden rounded-xl border border-borde bg-bg-elev transition-all duration-300 hover:-translate-y-1 hover:border-lla-400 hover:shadow-lla">
+    <article className="vidrio group relative flex flex-col overflow-hidden rounded-xl transition-all duration-300 hover:-translate-y-1 hover:border-acento/60 hover:shadow-lla">
       <div className="relative aspect-16/9 overflow-hidden bg-lla-950">
         <Portada
           noticia={noticia}
@@ -103,17 +103,17 @@ export function TarjetaNoticia({
       </div>
 
       <div className="flex flex-1 flex-col p-5">
-        <h3 className="linea-clamp-3 text-lg font-bold leading-snug tracking-tight text-fg transition-colors group-hover:text-brand">
+        <h3 className="font-instrument linea-clamp-3 text-xl leading-snug text-white transition-colors group-hover:text-lla-300">
           <Link href={`/noticias/${noticia.slug}`} className="after:absolute after:inset-0">
             {noticia.titulo}
           </Link>
         </h3>
         {noticia.bajada && (
-          <p className="linea-clamp-3 mt-2.5 text-sm leading-relaxed text-fg-muted">
+          <p className="font-inter linea-clamp-3 mt-2.5 text-sm leading-relaxed text-fg-muted">
             {noticia.bajada}
           </p>
         )}
-        <p className="mt-4 pt-3 text-xs font-medium text-fg-subtle border-t border-borde">
+        <p className="font-manrope mt-4 border-t border-white/10 pt-3 text-xs font-medium text-fg-subtle">
           {noticia.fechaLegible} · {noticia.minutosLectura} min
         </p>
       </div>
@@ -132,7 +132,7 @@ export function FilaNoticia({
   return (
     <article className="group relative flex gap-4 py-4">
       {numero !== undefined ? (
-        <span className="shrink-0 text-2xl font-black leading-none text-lla-300 tabular-nums">
+        <span className="font-instrument shrink-0 text-3xl leading-none text-lla-300 tabular-nums">
           {String(numero).padStart(2, "0")}
         </span>
       ) : (
@@ -142,15 +142,15 @@ export function FilaNoticia({
       )}
 
       <div className="min-w-0 flex-1">
-        <p className="text-[0.65rem] font-black uppercase tracking-wider text-brand">
+        <p className="font-manrope text-[0.65rem] font-bold uppercase tracking-wider text-brand">
           {noticia.categoriaNombre}
         </p>
-        <h3 className="linea-clamp-3 mt-1 text-[0.95rem] font-bold leading-snug text-fg transition-colors group-hover:text-brand">
+        <h3 className="font-instrument linea-clamp-3 mt-1 text-lg leading-snug text-white transition-colors group-hover:text-lla-300">
           <Link href={`/noticias/${noticia.slug}`} className="after:absolute after:inset-0">
             {noticia.titulo}
           </Link>
         </h3>
-        <p className="mt-1.5 text-xs text-fg-subtle">{noticia.fechaLegible}</p>
+        <p className="font-manrope mt-1.5 text-xs text-fg-subtle">{noticia.fechaLegible}</p>
       </div>
     </article>
   );

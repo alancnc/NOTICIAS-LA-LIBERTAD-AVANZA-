@@ -15,12 +15,13 @@ export const SITIO = {
   idioma: "es-AR",
   locale: "es_AR",
   email: "prensa@libertadavanzamisiones.com.ar",
+  telefono: "+54 9 376 432-5224",
   redes: {
-    x: "https://x.com/",
-    instagram: "https://instagram.com/",
-    facebook: "https://facebook.com/",
-    youtube: "https://youtube.com/",
-    whatsapp: "https://wa.me/",
+    instagram: "https://www.instagram.com/lalibertadavanzamisiones/",
+    facebook: "https://www.facebook.com/share/19ES7BM8Eo/?mibextid=wwXIfr",
+    whatsapp: "https://wa.me/5493764325224",
+    grupoWhatsapp:
+      "https://chat.whatsapp.com/JAD2ROWTt8D0yCpEw8vXRX?s=cl&p=i&ilr=0&amv=0",
   },
 } as const;
 

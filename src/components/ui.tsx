@@ -11,14 +11,14 @@ export function TituloSeccion({
   enlaceTexto?: string;
 }) {
   return (
-    <div className="mb-6 flex items-end justify-between gap-4 border-b-2 border-lla-600 pb-3">
-      <h2 className="text-xl font-black uppercase tracking-tight text-fg sm:text-2xl">
+    <div className="mb-6 flex items-end justify-between gap-4 border-b border-white/15 pb-3">
+      <h2 className="font-instrument text-2xl text-white sm:text-3xl">
         {children}
       </h2>
       {href && (
         <Link
           href={href}
-          className="shrink-0 text-sm font-bold text-brand transition-opacity hover:opacity-70"
+          className="font-manrope shrink-0 text-sm font-semibold text-brand transition-opacity hover:opacity-70"
         >
           {enlaceTexto} →
         </Link>
@@ -34,9 +34,9 @@ export function CintaUrgente({ noticias }: { noticias: Noticia[] }) {
   const items = [...noticias, ...noticias];
 
   return (
-    <div className="border-b border-red-800 bg-red-700 text-white">
+    <div className="relative border-b border-red-800 bg-red-700 text-white">
       <div className="mx-auto flex max-w-7xl items-center gap-3 px-4 sm:px-6 lg:px-8">
-        <span className="shrink-0 py-2.5 text-xs font-black uppercase tracking-wider">
+        <span className="font-manrope shrink-0 py-2.5 text-xs font-bold uppercase tracking-wider">
           <span className="mr-2 inline-block h-2 w-2 animate-pulse rounded-full bg-white align-middle" />
           Último momento
         </span>
@@ -46,7 +46,7 @@ export function CintaUrgente({ noticias }: { noticias: Noticia[] }) {
               <Link
                 key={`${n.slug}-${i}`}
                 href={`/noticias/${n.slug}`}
-                className="whitespace-nowrap text-sm font-medium hover:underline"
+                className="font-inter whitespace-nowrap text-sm font-medium hover:underline"
               >
                 {n.titulo}
               </Link>
@@ -78,7 +78,7 @@ export function Paginacion({
   );
 
   return (
-    <nav className="mt-12 flex items-center justify-center gap-2" aria-label="Paginación">
+    <nav className="font-manrope mt-12 flex items-center justify-center gap-2" aria-label="Paginación">
       {paginaActual > 1 && (
         <Link
           href={href(paginaActual - 1)}
@@ -131,14 +131,14 @@ export function EstadoVacio({
   mensaje: string;
 }) {
   return (
-    <div className="rounded-2xl border border-dashed border-borde-fuerte bg-bg-soft px-6 py-16 text-center">
-      <h3 className="text-lg font-bold text-fg">{titulo}</h3>
-      <p className="mx-auto mt-2 max-w-md text-sm leading-relaxed text-fg-muted">
+    <div className="vidrio rounded-2xl px-6 py-16 text-center">
+      <h3 className="font-instrument text-xl text-white">{titulo}</h3>
+      <p className="font-inter mx-auto mt-2 max-w-md text-sm leading-relaxed text-fg-muted">
         {mensaje}
       </p>
       <Link
         href="/noticias"
-        className="mt-6 inline-block rounded-lg bg-lla-600 px-5 py-2.5 text-sm font-bold text-white transition-colors hover:bg-lla-700"
+        className="font-cabin mt-6 inline-block rounded-[10px] bg-acento px-5 py-2.5 text-sm font-medium text-white transition-colors hover:bg-[#8f52ff]"
       >
         Ver todas las noticias
       </Link>

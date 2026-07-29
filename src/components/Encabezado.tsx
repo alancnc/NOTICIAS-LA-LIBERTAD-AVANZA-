@@ -3,121 +3,194 @@
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useEffect, useState } from "react";
-import { Logo } from "./Logo";
-import { NAVEGACION, SITIO } from "@/lib/config";
+import { AguilaLLA } from "./Logo";
+import { CATEGORIAS } from "@/lib/config";
 
-function fechaDeHoy() {
-  return new Intl.DateTimeFormat("es-AR", {
-    weekday: "long",
-    day: "numeric",
-    month: "long",
-    year: "numeric",
-    timeZone: "America/Argentina/Buenos_Aires",
-  }).format(new Date());
+const ENLACES_NAV = [
+  { etiqueta: "Inicio", href: "/" },
+  { etiqueta: "Noticias", href: "/noticias", desplegable: true },
+  { etiqueta: "Institucional", href: "/el-espacio" },
+  { etiqueta: "Contacto", href: "/contacto" },
+];
+
+function ChevronDown() {
+  return (
+    <svg
+      width="14"
+      height="14"
+      viewBox="0 0 24 24"
+      fill="none"
+      stroke="currentColor"
+      strokeWidth="2.2"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      aria-hidden="true"
+      className="transition-transform duration-200 group-hover:rotate-180"
+    >
+      <path d="m6 9 6 6 6-6" />
+    </svg>
+  );
+}
+
+/**
+ * En la barra el wordmark va en HTML y no como parte del PNG: el logo
+ * original es muy ancho y su texto quedaría ilegible a esta altura.
+ */
+function LogoEncabezado() {
+  return (
+    <Link
+      href="/"
+      className="flex items-center gap-3"
+      aria-label="La Libertad Avanza Misiones — Inicio"
+    >
+      <AguilaLLA className="h-10 w-auto shrink-0 sm:h-12" />
+      <span className="font-manrope leading-none">
+        <span className="block text-[0.58rem] font-bold uppercase tracking-[0.2em] text-white/75">
+          La
+        </span>
+        <span className="mt-0.5 block text-lg font-extrabold uppercase leading-none tracking-tight text-white sm:text-xl">
+          Libertad Avanza
+        </span>
+        <span className="mt-0.5 block text-[0.68rem] font-bold uppercase tracking-[0.3em] text-oro-400">
+          Misiones
+        </span>
+      </span>
+    </Link>
+  );
 }
 
 export function Encabezado() {
   const ruta = usePathname();
-  const [abierto, setAbierto] = useState(false);
-  const [fecha, setFecha] = useState("");
+  const [menuAbierto, setMenuAbierto] = useState(false);
+  const enInicio = ruta === "/";
 
-  useEffect(() => setFecha(fechaDeHoy()), []);
-  useEffect(() => setAbierto(false), [ruta]);
+  useEffect(() => setMenuAbierto(false), [ruta]);
 
   useEffect(() => {
-    document.body.style.overflow = abierto ? "hidden" : "";
+    document.body.style.overflow = menuAbierto ? "hidden" : "";
     return () => {
       document.body.style.overflow = "";
     };
-  }, [abierto]);
+  }, [menuAbierto]);
 
   const esActiva = (href: string) =>
     href === "/" ? ruta === "/" : ruta.startsWith(href);
 
-  // En la portada el Hero trae su propia navbar transparente sobre el video.
-  if (ruta === "/") return null;
-
   return (
-    <header className="sticky top-0 z-50 degrade-lla shadow-lg shadow-lla-950/20">
-      {/* Barra superior */}
-      <div className="hidden border-b border-white/10 md:block">
-        <div className="mx-auto flex max-w-7xl items-center justify-between px-4 py-1.5 text-xs text-lla-200 sm:px-6 lg:px-8">
-          <span className="capitalize">{fecha || " "}</span>
-          <div className="flex items-center gap-4">
-            <span className="hidden lg:inline">
-              Prensa {SITIO.provincia} · {SITIO.email}
-            </span>
-            <Link href="/contacto" className="font-semibold text-white hover:text-oro-400">
-              Enviá tu información
-            </Link>
-          </div>
-        </div>
-      </div>
+    <header
+      className={`sticky top-0 z-50 ${
+        enInicio ? "bg-transparent" : "border-b border-white/10 bg-[#1c0740]/90 backdrop-blur-md"
+      }`}
+    >
+      <div className="mx-auto flex items-center justify-between px-6 py-4 lg:px-[120px]">
+        <LogoEncabezado />
 
-      {/* Barra principal */}
-      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-        <div className="flex h-16 items-center justify-between gap-4 sm:h-[4.5rem]">
-          <Link href="/" aria-label={`${SITIO.nombre} — Inicio`}>
-            <Logo />
-          </Link>
-
-          <nav className="hidden items-center gap-0.5 lg:flex" aria-label="Principal">
-            {NAVEGACION.map((item) => (
+        <nav className="hidden items-center gap-1 lg:flex" aria-label="Principal">
+          {ENLACES_NAV.map((item) =>
+            item.desplegable ? (
+              <div key={item.href} className="group relative">
+                <Link
+                  href={item.href}
+                  aria-current={esActiva(item.href) ? "page" : undefined}
+                  className="flex items-center gap-1 px-3 py-2 font-manrope text-sm font-medium text-white transition-opacity hover:opacity-80"
+                >
+                  {item.etiqueta}
+                  <ChevronDown />
+                </Link>
+                <div className="invisible absolute left-0 top-full w-56 -translate-y-1 rounded-xl border border-white/10 bg-lla-950/95 p-2 opacity-0 shadow-lla backdrop-blur transition-all duration-150 group-hover:visible group-hover:translate-y-0 group-hover:opacity-100">
+                  {CATEGORIAS.slice(0, 5).map((c) => (
+                    <Link
+                      key={c.clave}
+                      href={`/categoria/${c.clave}`}
+                      className="block rounded-lg px-3 py-2 font-manrope text-sm text-lla-100 hover:bg-white/10 hover:text-white"
+                    >
+                      {c.nombre}
+                    </Link>
+                  ))}
+                </div>
+              </div>
+            ) : (
               <Link
                 key={item.href}
                 href={item.href}
                 aria-current={esActiva(item.href) ? "page" : undefined}
-                className={`rounded-lg px-3 py-2 text-sm font-semibold transition-colors ${
-                  esActiva(item.href)
-                    ? "bg-white/15 text-white"
-                    : "text-lla-100 hover:bg-white/10 hover:text-white"
-                }`}
+                className="px-3 py-2 font-manrope text-sm font-medium text-white transition-opacity hover:opacity-80"
               >
                 {item.etiqueta}
               </Link>
-            ))}
-          </nav>
+            ),
+          )}
+        </nav>
 
-          <button
-            type="button"
-            onClick={() => setAbierto((v) => !v)}
-            aria-expanded={abierto}
-            aria-controls="menu-movil"
-            aria-label={abierto ? "Cerrar menú" : "Abrir menú"}
-            className="rounded-lg p-2 text-white transition-colors hover:bg-white/10 lg:hidden"
+        <div className="hidden items-center gap-3 lg:flex">
+          <Link
+            href="/contacto"
+            className="rounded-lg border border-[#d4d4d4] bg-white px-4 py-2 font-manrope text-sm font-semibold text-[#171717] transition-colors hover:bg-white/90"
           >
-            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" aria-hidden="true">
-              {abierto ? (
-                <path d="M18 6 6 18M6 6l12 12" />
-              ) : (
-                <path d="M3 6h18M3 12h18M3 18h18" />
-              )}
-            </svg>
-          </button>
+            Prensa
+          </Link>
+          <Link
+            href="/contacto"
+            className="rounded-lg bg-acento px-4 py-2 font-manrope text-sm font-semibold text-[#fafafa] shadow-lla transition-colors hover:bg-[#8f52ff]"
+          >
+            Sumate
+          </Link>
         </div>
+
+        <button
+          type="button"
+          onClick={() => setMenuAbierto(true)}
+          aria-label="Abrir menú"
+          aria-expanded={menuAbierto}
+          className="text-white lg:hidden"
+        >
+          <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" aria-hidden="true">
+            <path d="M3 6h18M3 12h18M3 18h18" />
+          </svg>
+        </button>
       </div>
 
-      {/* Menú móvil */}
-      {abierto && (
-        <div
-          id="menu-movil"
-          className="border-t border-white/10 bg-lla-950/98 backdrop-blur lg:hidden"
-        >
-          <nav className="mx-auto max-w-7xl px-4 py-3 sm:px-6" aria-label="Móvil">
-            {NAVEGACION.map((item) => (
+      {/* Menú móvil a pantalla completa */}
+      {menuAbierto && (
+        <div className="fixed inset-0 z-[60] flex flex-col bg-black lg:hidden">
+          <div className="flex items-center justify-between px-6 py-4">
+            <LogoEncabezado />
+            <button
+              type="button"
+              onClick={() => setMenuAbierto(false)}
+              aria-label="Cerrar menú"
+              className="text-white"
+            >
+              <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" aria-hidden="true">
+                <path d="M18 6 6 18M6 6l12 12" />
+              </svg>
+            </button>
+          </div>
+          <nav className="flex flex-1 flex-col items-center justify-center gap-8">
+            {ENLACES_NAV.map((item) => (
               <Link
                 key={item.href}
                 href={item.href}
                 aria-current={esActiva(item.href) ? "page" : undefined}
-                className={`block rounded-lg px-3 py-3 text-base font-semibold ${
-                  esActiva(item.href)
-                    ? "bg-white/15 text-white"
-                    : "text-lla-100 hover:bg-white/10"
-                }`}
+                className="font-manrope text-2xl font-semibold text-white"
               >
                 {item.etiqueta}
               </Link>
             ))}
+            <div className="mt-4 flex flex-col items-center gap-4">
+              <Link
+                href="/contacto"
+                className="rounded-lg border border-[#d4d4d4] bg-white px-8 py-3 font-manrope text-sm font-semibold text-[#171717]"
+              >
+                Prensa
+              </Link>
+              <Link
+                href="/contacto"
+                className="rounded-lg bg-acento px-8 py-3 font-manrope text-sm font-semibold text-[#fafafa]"
+              >
+                Sumate
+              </Link>
+            </div>
           </nav>
         </div>
       )}
