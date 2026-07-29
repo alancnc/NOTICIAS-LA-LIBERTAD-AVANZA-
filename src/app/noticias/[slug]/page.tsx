@@ -106,7 +106,7 @@ export default async function PaginaNota({
               <span aria-hidden="true">/</span>
               <Link
                 href={`/categoria/${noticia.categoria}`}
-                className="text-oro-400 hover:text-oro-500"
+                className="text-lla-200 hover:text-white"
               >
                 {noticia.categoriaNombre}
               </Link>

@@ -50,7 +50,7 @@ export function PiePagina() {
                 <li key={c.clave}>
                   <Link
                     href={`/categoria/${c.clave}`}
-                    className="text-lla-200 transition-colors hover:text-oro-400"
+                    className="text-lla-200 transition-colors hover:text-white"
                   >
                     {c.nombre}
                   </Link>
@@ -66,22 +66,22 @@ export function PiePagina() {
             </h2>
             <ul className="mt-4 space-y-2.5 text-sm">
               <li>
-                <Link href="/el-espacio" className="text-lla-200 transition-colors hover:text-oro-400">
+                <Link href="/el-espacio" className="text-lla-200 transition-colors hover:text-white">
                   El espacio en Misiones
                 </Link>
               </li>
               <li>
-                <Link href="/noticias" className="text-lla-200 transition-colors hover:text-oro-400">
+                <Link href="/noticias" className="text-lla-200 transition-colors hover:text-white">
                   Todas las noticias
                 </Link>
               </li>
               <li>
-                <Link href="/contacto" className="text-lla-200 transition-colors hover:text-oro-400">
+                <Link href="/contacto" className="text-lla-200 transition-colors hover:text-white">
                   Contacto y prensa
                 </Link>
               </li>
               <li>
-                <a href="/rss.xml" className="text-lla-200 transition-colors hover:text-oro-400">
+                <a href="/rss.xml" className="text-lla-200 transition-colors hover:text-white">
                   Feed RSS
                 </a>
               </li>
@@ -100,7 +100,7 @@ export function PiePagina() {
             <div className="font-cabin mt-4 flex flex-wrap gap-2">
               <a
                 href={`mailto:${SITIO.email}`}
-                className="inline-flex items-center gap-2 rounded-[10px] bg-oro-500 px-4 py-2.5 text-sm font-medium text-lla-950 transition-colors hover:bg-oro-400"
+                className="inline-flex items-center gap-2 rounded-[10px] bg-white px-4 py-2.5 text-sm font-medium text-lla-900 transition-colors hover:bg-lla-100"
               >
                 Escribir a prensa
               </a>
@@ -117,7 +117,7 @@ export function PiePagina() {
               href={SITIO.redes.grupoWhatsapp}
               target="_blank"
               rel="noopener noreferrer"
-              className="font-inter mt-3 inline-block text-sm text-lla-200 underline decoration-lla-500 underline-offset-2 hover:text-oro-400"
+              className="font-inter mt-3 inline-block text-sm text-lla-200 underline decoration-lla-500 underline-offset-2 hover:text-white"
             >
               Sumate al grupo de WhatsApp →
             </a>

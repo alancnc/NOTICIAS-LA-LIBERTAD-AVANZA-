@@ -51,7 +51,7 @@ function LogoEncabezado() {
         <span className="mt-0.5 block text-lg font-extrabold uppercase leading-none tracking-tight text-white sm:text-xl">
           Libertad Avanza
         </span>
-        <span className="mt-0.5 block text-[0.68rem] font-bold uppercase tracking-[0.3em] text-oro-400">
+        <span className="mt-0.5 block text-[0.68rem] font-bold uppercase tracking-[0.3em] text-white">
           Misiones
         </span>
       </span>

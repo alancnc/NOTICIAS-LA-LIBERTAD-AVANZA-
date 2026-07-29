@@ -105,7 +105,7 @@ export default function ElEspacio() {
           </p>
           <Link
             href="/contacto"
-            className="font-cabin mt-7 inline-block rounded-[10px] bg-oro-500 px-7 py-3 text-sm font-medium text-lla-950 transition-transform hover:scale-105"
+            className="font-cabin mt-7 inline-block rounded-[10px] bg-white px-7 py-3 text-sm font-medium text-lla-900 transition-transform hover:scale-105"
           >
             Contactanos
           </Link>
