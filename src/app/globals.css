@@ -107,6 +107,23 @@
   border-color: var(--border);
 }
 
+/* Fuentes del hero (cargadas vía next/font en layout.tsx) */
+.font-manrope {
+  font-family: var(--font-manrope), ui-sans-serif, system-ui, sans-serif;
+}
+
+.font-cabin {
+  font-family: var(--font-cabin), ui-sans-serif, system-ui, sans-serif;
+}
+
+.font-instrument {
+  font-family: var(--font-instrument-serif), Georgia, serif;
+}
+
+.font-inter {
+  font-family: var(--font-inter), ui-sans-serif, system-ui, sans-serif;
+}
+
 html {
   scroll-behavior: smooth;
   -webkit-text-size-adjust: 100%;

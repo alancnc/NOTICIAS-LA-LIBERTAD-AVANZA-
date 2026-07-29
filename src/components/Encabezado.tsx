@@ -34,6 +34,9 @@ export function Encabezado() {
   const esActiva = (href: string) =>
     href === "/" ? ruta === "/" : ruta.startsWith(href);
 
+  // En la portada el Hero trae su propia navbar transparente sobre el video.
+  if (ruta === "/") return null;
+
   return (
     <header className="sticky top-0 z-50 degrade-lla shadow-lg shadow-lla-950/20">
       {/* Barra superior */}

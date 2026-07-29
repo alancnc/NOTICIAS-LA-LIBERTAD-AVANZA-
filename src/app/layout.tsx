@@ -1,8 +1,34 @@
 import type { Metadata, Viewport } from "next";
+import { Cabin, Inter, Instrument_Serif, Manrope } from "next/font/google";
 import { Encabezado } from "@/components/Encabezado";
 import { PiePagina } from "@/components/PiePagina";
 import { SITIO } from "@/lib/config";
 import "./globals.css";
+
+const manrope = Manrope({
+  subsets: ["latin"],
+  weight: ["400", "500", "600", "700", "800"],
+  variable: "--font-manrope",
+});
+
+const cabin = Cabin({
+  subsets: ["latin"],
+  weight: ["400", "500", "600"],
+  variable: "--font-cabin",
+});
+
+const instrumentSerif = Instrument_Serif({
+  subsets: ["latin"],
+  weight: "400",
+  style: ["normal", "italic"],
+  variable: "--font-instrument-serif",
+});
+
+const inter = Inter({
+  subsets: ["latin"],
+  weight: ["400", "500", "600"],
+  variable: "--font-inter",
+});
 
 export const metadata: Metadata = {
   metadataBase: new URL(SITIO.url),
@@ -56,7 +82,10 @@ export default function RootLayout({
   children,
 }: Readonly<{ children: React.ReactNode }>) {
   return (
-    <html lang="es-AR">
+    <html
+      lang="es-AR"
+      className={`${manrope.variable} ${cabin.variable} ${instrumentSerif.variable} ${inter.variable}`}
+    >
       <body className="flex min-h-screen flex-col">
         <a
           href="#contenido"

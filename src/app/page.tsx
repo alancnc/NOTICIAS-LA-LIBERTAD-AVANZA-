@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { Hero } from "@/components/Hero";
 import { TarjetaNoticia, TarjetaPrincipal, FilaNoticia } from "@/components/TarjetaNoticia";
 import { CintaUrgente, EstadoVacio, TituloSeccion } from "@/components/ui";
 import { CATEGORIAS, SITIO } from "@/lib/config";
@@ -18,12 +19,15 @@ export default function Inicio() {
 
   if (noticias.length === 0) {
     return (
-      <div className="mx-auto max-w-3xl px-4 py-24 sm:px-6">
-        <EstadoVacio
-          titulo="Todavía no hay noticias publicadas"
-          mensaje="Cuando se publique la primera nota va a aparecer acá automáticamente."
-        />
-      </div>
+      <>
+        <Hero />
+        <div className="mx-auto max-w-3xl px-4 py-24 sm:px-6">
+          <EstadoVacio
+            titulo="Todavía no hay noticias publicadas"
+            mensaje="Cuando se publique la primera nota va a aparecer acá automáticamente."
+          />
+        </div>
+      </>
     );
   }
 
@@ -38,6 +42,7 @@ export default function Inicio() {
 
   return (
     <>
+      <Hero />
       <CintaUrgente noticias={urgentes} />
 
       {/* Apertura */}
