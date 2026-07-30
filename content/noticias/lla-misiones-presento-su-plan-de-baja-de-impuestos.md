@@ -7,7 +7,8 @@ autor: "Prensa LLA Misiones"
 destacada: true
 urgente: false
 etiquetas: ["impuestos", "pymes", "producción"]
-imagenAlt: "Presentación del plan de reducción impositiva"
+imagen: "/noticias/yerba-produccion.jpg"
+imagenAlt: "Ilustración de la producción yerbatera misionera"
 ---
 
 La Libertad Avanza Misiones presentó este lunes en Posadas los lineamientos de su

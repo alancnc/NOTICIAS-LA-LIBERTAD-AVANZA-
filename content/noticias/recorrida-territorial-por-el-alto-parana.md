@@ -7,7 +7,8 @@ autor: "Prensa LLA Misiones"
 destacada: true
 urgente: false
 etiquetas: ["territorio", "Eldorado", "Iguazú"]
-imagenAlt: "Encuentro con vecinos en el Alto Paraná"
+imagen: "/noticias/recorrida-territorial.jpg"
+imagenAlt: "Ilustración de una recorrida por caminos del interior misionero"
 ---
 
 Durante el fin de semana, referentes de La Libertad Avanza Misiones recorrieron

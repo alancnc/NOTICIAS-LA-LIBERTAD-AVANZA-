@@ -7,6 +7,8 @@ autor: "Prensa LLA Misiones"
 destacada: false
 urgente: false
 etiquetas: ["presupuesto", "transparencia"]
+imagen: "/noticias/presupuesto.jpg"
+imagenAlt: "Ilustración sobre el presupuesto y la ejecución del gasto público"
 ---
 
 Ante el tratamiento del proyecto de Presupuesto provincial, La Libertad Avanza

@@ -7,6 +7,8 @@ autor: "Prensa LLA Misiones"
 destacada: false
 urgente: false
 etiquetas: ["balance", "agenda", "gestión"]
+imagen: "/noticias/balance-gestion.jpg"
+imagenAlt: "Ilustración del balance de gestión y la agenda del semestre"
 ---
 
 La Libertad Avanza Misiones presentó un balance del trabajo realizado durante el

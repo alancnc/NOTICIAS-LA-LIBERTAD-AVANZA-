@@ -7,6 +7,8 @@ autor: "Prensa LLA Misiones"
 destacada: false
 urgente: false
 etiquetas: ["Posadas", "obras", "vecinos"]
+imagen: "/noticias/municipios-calles.jpg"
+imagenAlt: "Ilustración de los barrios y calles de la capital provincial"
 ---
 
 Vecinos de los barrios del sur de Posadas presentaron un petitorio ante el municipio

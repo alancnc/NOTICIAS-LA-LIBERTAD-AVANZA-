@@ -7,7 +7,8 @@ autor: "Prensa LLA Misiones"
 destacada: true
 urgente: false
 etiquetas: ["ficha limpia", "transparencia", "legislatura"]
-imagenAlt: "Sesión en la Legislatura de Misiones"
+imagen: "/noticias/legislatura.jpg"
+imagenAlt: "Ilustración de la actividad legislativa provincial"
 ---
 
 La Libertad Avanza Misiones anunció la presentación de un proyecto de ley de
